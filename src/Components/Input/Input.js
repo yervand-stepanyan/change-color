@@ -13,7 +13,6 @@ export default class Input extends React.Component {
       isSingleSymbol: false,
       borderStatus: "default",
     };
-    // this.onInputChange = this.onInputChange.bind(this);
   }
 
   isHexadecimal = (str) => {
@@ -24,15 +23,21 @@ export default class Input extends React.Component {
 
   onInputChange = (event) => {
     const {inputType, color} = this.state;
-
-    console.log(this.state.inputType);
+    const colorData = {inputType, color};
 
     this.checkInputValue(event.target);
 
-    this.props.setColor(inputType, color);
+    console.log(inputType);
+    console.log(color);
+    console.log(JSON.stringify(color));
+
+    if (inputType && color) {
+      this.sendColorData(colorData);
+    }
   };
 
   checkInputValue = (inputField) => {
+    console.log("**************************");
     let inputValue = inputField.value;
 
     if (inputValue.length === 1 && inputValue[0] !== "#") {
@@ -61,11 +66,16 @@ export default class Input extends React.Component {
 
     if (this.isHexadecimal(valueToCheck)) {
       console.log("+++++++++++++++++++++++");
-      console.log(inputValue);
+      console.log("inputValue : ", inputValue);
       this.setState({borderStatus: "valid", color: inputValue});
     } else {
-      this.setState({borderStatus: valueToCheck !== "" ? "invalid" : "default"});
+      this.setState({borderStatus: valueToCheck !== "" ? "invalid" : "default", color: ""});
     }
+
+  };
+
+  sendColorData = (colorData) => {
+    this.props.colorData(colorData);
   };
 
   render() {

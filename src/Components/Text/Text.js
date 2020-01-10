@@ -13,10 +13,10 @@ export default class Text extends React.Component {
         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas." +
         " Maecenas consectetur, odio non maximus elementum, leo nisi imperdiet nunc, " +
         "nec vehicula quam nisl vitae mi. Aliquam erat volutpat."
-    }
+    };
   }
 
-  setColor = (inputType, color) => {
+  setColor = ({inputType, color}) => {
     console.log("Text setColor works...");
     if (inputType === "textColor")
       this.textNode.style.color = color;
@@ -24,9 +24,16 @@ export default class Text extends React.Component {
       this.textNode.style.backgroundColor = color;
   };
 
+  setText = (text) => {
+    if (this.textNode) {
+      this.setColor(this.props.colorData);
+    }
+    return text;
+  };
+
   render() {
     return (
-      <div className="text" ref={node => (this.textNode = node)}>{this.state.initialText}</div>
+      <div className="text" ref={node => (this.textNode = node)}>{this.setText(this.state.initialText)}</div>
     );
   }
 

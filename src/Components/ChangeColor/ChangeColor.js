@@ -12,26 +12,31 @@ export default class ChangeColor extends React.Component {
       backgroundInput: "backgroundColor",
       colorLabel: "Color :",
       backgroundColorLabel: "Background color :",
-    }
+      colorData: {},
+    };
   }
 
+  colorData = (colorData) => {
+    this.setState({colorData: colorData});
+  };
+
   render() {
-    const {colorInput, backgroundInput, colorLabel, backgroundColorLabel} = this.state;
+    const {colorInput, backgroundInput, colorLabel, backgroundColorLabel, colorData} = this.state;
 
     return (
       <div className="main">
         <div className="content">
           <div className="text">
-            <Text/>
+            <Text colorData={colorData}/>
           </div>
           <div className="inputs">
             <div className="colorDiv">
               <label htmlFor={colorInput}>{colorLabel}</label>
-              <Input id={colorInput} inputType={colorInput}/>
+              <Input id={colorInput} inputType={colorInput} colorData={this.colorData}/>
             </div>
             <div className="backgroundColorDiv">
               <label htmlFor={backgroundInput}>{backgroundColorLabel}</label>
-              <Input id={backgroundInput} inputType={backgroundInput}/>
+              <Input id={backgroundInput} inputType={backgroundInput} colorData={this.colorData}/>
             </div>
           </div>
         </div>
