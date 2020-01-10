@@ -1,0 +1,17 @@
+input {
+    letter-spacing: 2px;
+    padding: 5px 5px;
+    outline: none;
+}
+
+.setDefault {
+    border: 1px solid #A9A9A9;
+}
+
+.setValid {
+    border: 2px solid green;
+}
+
+.setInvalid {
+    border: 2px solid red;
+}
