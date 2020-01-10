@@ -17,7 +17,6 @@ export default class Text extends React.Component {
   }
 
   setColor = ({inputType, color}) => {
-    console.log("Text setColor works...");
     if (inputType === "textColor")
       this.textNode.style.color = color;
     else

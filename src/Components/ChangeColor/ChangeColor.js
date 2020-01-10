@@ -40,9 +40,7 @@ export default class ChangeColor extends React.Component {
             </div>
           </div>
         </div>
-
       </div>
     )
   }
-
 }
