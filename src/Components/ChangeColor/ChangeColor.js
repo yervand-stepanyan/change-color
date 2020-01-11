@@ -8,20 +8,21 @@ export default class ChangeColor extends React.Component {
     super(props);
 
     this.state = {
-      colorInput: "textColor",
-      backgroundInput: "backgroundColor",
+      textColorInput: "textColor",
+      backgroundColorInput: "backgroundColor",
       colorLabel: "Color :",
       backgroundColorLabel: "Background color :",
       colorData: {},
     };
   }
 
-  colorData = (colorData) => {
+  passColorData = (colorData) => {
+    console.log("colorData passed: ", colorData);
     this.setState({colorData: colorData});
   };
 
   render() {
-    const {colorInput, backgroundInput, colorLabel, backgroundColorLabel, colorData} = this.state;
+    const {textColorInput, backgroundColorInput, colorLabel, backgroundColorLabel, colorData} = this.state;
 
     return (
       <div className="main">
@@ -31,12 +32,12 @@ export default class ChangeColor extends React.Component {
           </div>
           <div className="inputs">
             <div className="colorDiv">
-              <label htmlFor={colorInput}>{colorLabel}</label>
-              <Input id={colorInput} inputType={colorInput} colorData={this.colorData}/>
+              <label htmlFor={textColorInput}>{colorLabel}</label>
+              <Input id={textColorInput} inputType={textColorInput} passColorData={this.passColorData}/>
             </div>
             <div className="backgroundColorDiv">
-              <label htmlFor={backgroundInput}>{backgroundColorLabel}</label>
-              <Input id={backgroundInput} inputType={backgroundInput} colorData={this.colorData}/>
+              <label htmlFor={backgroundColorInput}>{backgroundColorLabel}</label>
+              <Input id={backgroundColorInput} inputType={backgroundColorInput} passColorData={this.passColorData}/>
             </div>
           </div>
         </div>

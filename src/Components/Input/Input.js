@@ -6,14 +6,30 @@ export default class Input extends React.Component {
     super(props);
 
     this.state = {
-      color: "",
-      inputType: this.props.inputType,
+      color: JSON.parse(localStorage.getItem("color")) || "",
+      inputType: this.props.inputType || JSON.parse(localStorage.getItem("inputType")),
       placeholder: "#FFFFFF",
       inputValue: "",
       isSingleSymbol: false,
       borderStatus: "default",
     };
+
+    setTimeout(() => {
+      this.dataAfterRefresh();
+    });
   }
+
+  dataAfterRefresh = () => {
+    const {color, inputType} = this.state;
+    if (JSON.parse(localStorage.getItem("color"))) {
+      // if (this.state.inputType) {
+      console.log(color);
+      console.log(inputType);
+      // }
+
+      this.checkInputValue(color, inputType);
+    }
+  };
 
   isHexadecimal = (str) => {
     const regexp = /(^[0-9A-F]{6}$)|(^[0-9A-F]{3}$)/i;
@@ -22,11 +38,13 @@ export default class Input extends React.Component {
   };
 
   onInputChange = (event) => {
-    this.checkInputValue(event.target);
+    this.checkInputValue(event.target.value, this.state.inputType);
+
+    localStorage.setItem("inputType", JSON.stringify(this.state.inputType));
   };
 
-  checkInputValue = (inputField) => {
-    let inputValue = inputField.value;
+  checkInputValue = (inputVal, inputType) => {
+    let inputValue = inputVal;
 
     if (inputValue.length === 1 && inputValue[0] !== "#") {
       this.setState({inputValue: "#" + inputValue, isSingleSymbol: true});
@@ -54,10 +72,12 @@ export default class Input extends React.Component {
 
     if (this.isHexadecimal(valueToCheck)) {
       this.setState({borderStatus: "valid", color: inputValue}, () => {
-        const {inputType, color} = this.state;
+        const {color} = this.state;
         const colorData = {inputType, color};
 
         this.sendColorData(colorData);
+
+        localStorage.setItem("color", JSON.stringify(color));
       });
     } else {
       this.setState({borderStatus: valueToCheck !== "" ? "invalid" : "default", color: ""});
@@ -65,7 +85,7 @@ export default class Input extends React.Component {
   };
 
   sendColorData = (colorData) => {
-    this.props.colorData(colorData);
+    this.props.passColorData(colorData);
   };
 
   render() {
