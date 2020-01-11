@@ -41,6 +41,10 @@ export default class Input extends React.Component {
 
     if (inputValue.length === 1 && inputValue[0] !== "#") {
       this.setState({inputValue: "#" + inputValue, isSingleSymbol: true});
+    } else if (inputValue.length > 1 && inputValue[0] !== "#") {
+      inputValue = "#" + inputValue.slice(0, 6);
+
+      this.setState({inputValue});
     } else {
       if (inputValue.length === 1 && inputValue[0] === "#") {
         this.setState({inputValue});
