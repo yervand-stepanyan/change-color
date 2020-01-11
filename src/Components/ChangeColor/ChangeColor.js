@@ -17,7 +17,6 @@ export default class ChangeColor extends React.Component {
   }
 
   passColorData = (colorData) => {
-    console.log("colorData passed: ", colorData);
     this.setState({colorData: colorData});
   };
 
@@ -28,7 +27,7 @@ export default class ChangeColor extends React.Component {
       <div className="main">
         <div className="content">
           <div className="text">
-            <Text colorData={colorData}/>
+            <Text sendColorData={colorData}/>
           </div>
           <div className="inputs">
             <div className="colorDiv">

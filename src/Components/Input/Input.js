@@ -6,8 +6,8 @@ export default class Input extends React.Component {
     super(props);
 
     this.state = {
-      color: JSON.parse(localStorage.getItem("color")) || "",
-      inputType: this.props.inputType || JSON.parse(localStorage.getItem("inputType")),
+      color: JSON.parse(localStorage.getItem(this.props.inputType)) || "",
+      inputType: this.props.inputType,
       placeholder: "#FFFFFF",
       inputValue: "",
       isSingleSymbol: false,
@@ -21,12 +21,7 @@ export default class Input extends React.Component {
 
   dataAfterRefresh = () => {
     const {color, inputType} = this.state;
-    if (JSON.parse(localStorage.getItem("color"))) {
-      // if (this.state.inputType) {
-      console.log(color);
-      console.log(inputType);
-      // }
-
+    if (JSON.parse(localStorage.getItem(inputType))) {
       this.checkInputValue(color, inputType);
     }
   };
@@ -39,8 +34,6 @@ export default class Input extends React.Component {
 
   onInputChange = (event) => {
     this.checkInputValue(event.target.value, this.state.inputType);
-
-    localStorage.setItem("inputType", JSON.stringify(this.state.inputType));
   };
 
   checkInputValue = (inputVal, inputType) => {
@@ -55,7 +48,13 @@ export default class Input extends React.Component {
         if (this.state.isSingleSymbol) {
           if (inputValue !== "") {
             this.setState({inputValue: ""});
+
             inputValue = "";
+
+            const colorData = {inputType, color: this.state.color};
+            this.sendColorData(colorData);
+
+            localStorage.removeItem(inputType);
           }
         }
 
@@ -63,8 +62,14 @@ export default class Input extends React.Component {
       } else {
         if (inputValue !== "") {
           this.setState({inputValue, isSingleSymbol: true});
+        } else {
+          this.setState({inputValue});
+
+          const colorData = {inputType, color: inputValue};
+          this.sendColorData(colorData);
+
+          localStorage.removeItem(inputType);
         }
-        this.setState({inputValue});
       }
     }
 
@@ -77,10 +82,22 @@ export default class Input extends React.Component {
 
         this.sendColorData(colorData);
 
-        localStorage.setItem("color", JSON.stringify(color));
+        localStorage.setItem(inputType, JSON.stringify(color));
       });
     } else {
-      this.setState({borderStatus: valueToCheck !== "" ? "invalid" : "default", color: ""});
+      this.setState({borderStatus: valueToCheck !== "" ? "invalid" : "default", color: ""},
+        () => {
+          const colorData = {inputType, color: this.state.color};
+          const inpValue = inputValue.length === 1 ? "#" + inputValue : inputValue;
+
+          this.sendColorData(colorData);
+
+          if (inpValue === "") {
+            localStorage.removeItem(inputType);
+          } else {
+            localStorage.setItem(inputType, JSON.stringify(inpValue));
+          }
+        });
     }
   };
 

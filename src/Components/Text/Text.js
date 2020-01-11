@@ -20,7 +20,7 @@ export default class Text extends React.Component {
 
   setText = (text) => {
     if (this.textNode) {
-      this.setColor(this.props.colorData);
+      this.setColor(this.props.sendColorData);
     }
     return text;
   };
