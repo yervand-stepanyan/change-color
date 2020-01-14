@@ -4,7 +4,7 @@ import './index.css';
 import ChangeColor from './Components/ChangeColor/ChangeColor.js';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<ChangeColor/>, document.getElementById('root'));
+ReactDOM.render(<ChangeColor />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

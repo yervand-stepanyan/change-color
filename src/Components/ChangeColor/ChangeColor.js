@@ -8,39 +8,59 @@ export default class ChangeColor extends React.Component {
     super(props);
 
     this.state = {
-      textColorInput: "textColor",
-      backgroundColorInput: "backgroundColor",
-      colorLabel: "Color :",
-      backgroundColorLabel: "Background color :",
-      colorData: {},
+      textColorInput: 'color',
+      backgroundColorInput: 'backgroundColor',
+      colorLabel: 'Color :',
+      backgroundColorLabel: 'Background color :',
+      color: '',
+      backgroundColor: ''
     };
   }
 
-  passColorData = (colorData) => {
-    this.setState({colorData: colorData});
+  setColorValues = colorData => {
+    this.setState({ [colorData.inputType]: colorData.color });
   };
 
   render() {
-    const {textColorInput, backgroundColorInput, colorLabel, backgroundColorLabel, colorData} = this.state;
+    const {
+      textColorInput,
+      backgroundColorInput,
+      colorLabel,
+      backgroundColorLabel,
+      color,
+      backgroundColor
+    } = this.state;
+
+    const styles = { color, backgroundColor };
 
     return (
       <div className="main">
         <div className="content">
           <div className="text">
-            <Text sendColorData={colorData}/>
+            <Text styles={styles} />
           </div>
           <div className="inputs">
             <div className="colorDiv">
               <label htmlFor={textColorInput}>{colorLabel}</label>
-              <Input id={textColorInput} inputType={textColorInput} passColorData={this.passColorData}/>
+              <Input
+                id={textColorInput}
+                inputType={textColorInput}
+                passColorData={this.setColorValues}
+              />
             </div>
             <div className="backgroundColorDiv">
-              <label htmlFor={backgroundColorInput}>{backgroundColorLabel}</label>
-              <Input id={backgroundColorInput} inputType={backgroundColorInput} passColorData={this.passColorData}/>
+              <label htmlFor={backgroundColorInput}>
+                {backgroundColorLabel}
+              </label>
+              <Input
+                id={backgroundColorInput}
+                inputType={backgroundColorInput}
+                passColorData={this.setColorValues}
+              />
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
