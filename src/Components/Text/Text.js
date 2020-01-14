@@ -13,8 +13,6 @@ const initialText =
 
 export default class Text extends React.Component {
   render() {
-    console.log(this.props.styles);
-
     return (
       <div style={this.props.styles} className="text">
         {initialText}
