@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/change-color/static/css/main.acaae45b.chunk.css",
-    "main.js": "/change-color/static/js/main.c7a1ddd5.chunk.js",
-    "main.js.map": "/change-color/static/js/main.c7a1ddd5.chunk.js.map",
+    "main.js": "/change-color/static/js/main.81245b4c.chunk.js",
+    "main.js.map": "/change-color/static/js/main.81245b4c.chunk.js.map",
     "runtime-main.js": "/change-color/static/js/runtime-main.d51caa09.js",
     "runtime-main.js.map": "/change-color/static/js/runtime-main.d51caa09.js.map",
     "static/js/2.8e09ea50.chunk.js": "/change-color/static/js/2.8e09ea50.chunk.js",
     "static/js/2.8e09ea50.chunk.js.map": "/change-color/static/js/2.8e09ea50.chunk.js.map",
     "index.html": "/change-color/index.html",
-    "precache-manifest.17274db5055590fad66da13afef76792.js": "/change-color/precache-manifest.17274db5055590fad66da13afef76792.js",
+    "precache-manifest.15e3f170626e3e20bbf01e181e8b60d3.js": "/change-color/precache-manifest.15e3f170626e3e20bbf01e181e8b60d3.js",
     "service-worker.js": "/change-color/service-worker.js",
     "static/css/main.acaae45b.chunk.css.map": "/change-color/static/css/main.acaae45b.chunk.css.map",
     "static/js/2.8e09ea50.chunk.js.LICENSE": "/change-color/static/js/2.8e09ea50.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d51caa09.js",
     "static/js/2.8e09ea50.chunk.js",
     "static/css/main.acaae45b.chunk.css",
-    "static/js/main.c7a1ddd5.chunk.js"
+    "static/js/main.81245b4c.chunk.js"
   ]
 }
