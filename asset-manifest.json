@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/change-color/static/css/main.acaae45b.chunk.css",
-    "main.js": "/change-color/static/js/main.f65e2011.chunk.js",
-    "main.js.map": "/change-color/static/js/main.f65e2011.chunk.js.map",
-    "runtime-main.js": "/change-color/static/js/runtime-main.b5ec3488.js",
-    "runtime-main.js.map": "/change-color/static/js/runtime-main.b5ec3488.js.map",
-    "static/js/2.eceea1bf.chunk.js": "/change-color/static/js/2.eceea1bf.chunk.js",
-    "static/js/2.eceea1bf.chunk.js.map": "/change-color/static/js/2.eceea1bf.chunk.js.map",
+    "main.js": "/change-color/static/js/main.1b8f3be7.chunk.js",
+    "main.js.map": "/change-color/static/js/main.1b8f3be7.chunk.js.map",
+    "runtime-main.js": "/change-color/static/js/runtime-main.ebc3b6d6.js",
+    "runtime-main.js.map": "/change-color/static/js/runtime-main.ebc3b6d6.js.map",
+    "static/js/2.bc50c30b.chunk.js": "/change-color/static/js/2.bc50c30b.chunk.js",
+    "static/js/2.bc50c30b.chunk.js.map": "/change-color/static/js/2.bc50c30b.chunk.js.map",
     "index.html": "/change-color/index.html",
-    "precache-manifest.f93d413e685a4fc2a6d45b3867d001e5.js": "/change-color/precache-manifest.f93d413e685a4fc2a6d45b3867d001e5.js",
+    "precache-manifest.0945d258f773f8c0fb9f84f538b98bc6.js": "/change-color/precache-manifest.0945d258f773f8c0fb9f84f538b98bc6.js",
     "service-worker.js": "/change-color/service-worker.js",
     "static/css/main.acaae45b.chunk.css.map": "/change-color/static/css/main.acaae45b.chunk.css.map",
-    "static/js/2.eceea1bf.chunk.js.LICENSE.txt": "/change-color/static/js/2.eceea1bf.chunk.js.LICENSE.txt"
+    "static/js/2.bc50c30b.chunk.js.LICENSE.txt": "/change-color/static/js/2.bc50c30b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b5ec3488.js",
-    "static/js/2.eceea1bf.chunk.js",
+    "static/js/runtime-main.ebc3b6d6.js",
+    "static/js/2.bc50c30b.chunk.js",
     "static/css/main.acaae45b.chunk.css",
-    "static/js/main.f65e2011.chunk.js"
+    "static/js/main.1b8f3be7.chunk.js"
   ]
 }
